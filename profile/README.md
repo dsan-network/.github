@@ -203,3 +203,11 @@ execution can no longer be implicit.
 DSAN exists to make execution explicit, constrained, and accountable.
 
 ---
+
+## License
+
+This project is licensed under the Apache License 2.0.
+
+You are free to use, modify, and distribute this software, provided that proper attribution is maintained.
+
+For more details, see the LICENSE file.
