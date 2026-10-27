@@ -1,6 +1,6 @@
-# DSAN Agents — Guia rápido de operação (v0.1)
+# DSAN Agents — Guia rápido de operação (v0.2)
 
-**Status:** instruções para perfis propostos em PR. Os perfis não trabalham em segundo plano e não criam tickets, commits ou PRs automaticamente. A ativação depende da disponibilidade de GitHub Copilot e da integração com a organização.
+**Status:** perfis Architect e Steward incorporados à branch principal organizacional. Ainda é necessário verificar descoberta, permissões efetivas e homologação funcional em uma sessão real do GitHub Copilot. Os perfis não trabalham continuamente em segundo plano, nem criam tickets, commits ou PRs automaticamente.
 
 ## 1. O que é um agente
 
@@ -8,7 +8,7 @@ Um arquivo `.agent.md` determina **papel, instruções e ferramentas disponívei
 
 Os perfis organizacionais ficam em `/agents` na raiz do repositório da organização `dsan-network/.github`. Já dentro de um repositório de projeto, a pasta correta seria `.github/agents`. Não confundir.
 
-## 2. Agentes que existem como proposta
+## 2. Agentes configurados na organização
 
 | Agente | Permissão | Uso |
 | --- | --- | --- |
@@ -17,14 +17,14 @@ Os perfis organizacionais ficam em `/agents` na raiz do repositório da organiza
 
 Em ambos: `disable-model-invocation: true` e `user-invocable: true`. O usuário precisa escolher explicitamente o perfil. O agente pode não enxergar repositórios privados se a conta/integração não tiver as permissões necessárias.
 
-## 3. Ativar depois da revisão
+## 3. Localizar os perfis e iniciar a homologação
 
-1. Abrir o PR organizacional: https://github.com/dsan-network/.github/pull/1
-2. Revisar diferenças de arquivos e instruções; conferir que perfis estão em `agents/*.agent.md`.
-3. Mesclar apenas após aprovação do mantenedor.
-4. Verificar que a conta GitHub tem recurso Copilot adequado, permissões e políticas organizacionais. Copilot Cloud Agent exige disponibilidade/habilitação na conta.
-5. No VS Code com GitHub Copilot Chat: autenticar no GitHub, abrir o repositório desejado e selecionar `DSAN Architect` ou `DSAN Steward` no menu de agentes. A descoberta dos agentes organizacionais pode depender de versão/configuração.
-6. Alternativa: no GitHub.com, abrir https://github.com/copilot/agents e selecionar o repositório e agente personalizado, se a funcionalidade estiver habilitada.
+1. O PR organizacional https://github.com/dsan-network/.github/pull/1 já foi incorporado; confira os arquivos `agents/*.agent.md` na `main`.
+2. Verifique que a conta GitHub possui GitHub Copilot habilitado e acesso ao repositório-alvo; o serviço pode depender de políticas da organização.
+3. No VS Code com GitHub Copilot Chat, autentique-se, abra um workspace autorizado e selecione `DSAN Architect` ou `DSAN Steward` no menu de agentes, quando disponíveis.
+4. Alternativa: https://github.com/copilot/agents, escolhendo repositório e perfil no seletor de agentes.
+5. Execute o roteiro `governance/AGENT-ACCEPTANCE-PLAYBOOK-v0.2-pt-BR.md`; registre evidências de execução **em local privado**. Não marque homologado apenas pela existência do perfil.
+6. Caso o perfil não apareça, confira disponibilidade, políticas e permissões; **não torne um repositório privado público** apenas para destravar a descoberta.
 
 Documentação oficial: https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents
 
@@ -77,6 +77,6 @@ Documentação oficial: https://docs.github.com/en/copilot/how-tos/administer-co
 
 ## 8. Escalar o modelo
 
-Depois de aprender os dois papéis consultivos e validar visibilidade/limitações, considerar um **DSAN Implementer** isolado, que edita somente branch de trabalho e nunca mescla, e um **DSAN Sentinel**, revisor de segurança. Qualquer permissão de escrita deve ser concedida explicitamente e revisada.
+Depois de homologar os dois papéis consultivos, avaliar `governance/DSAN-IMPLEMENTER-ROLE-v0.1.md` como especificação **ainda não operacional** de um implementador em sandbox. Exigir proteção efetiva da `main`, testes de isolamento e aprovação humana separada antes de conceder qualquer ferramenta de escrita. Um **DSAN Sentinel** poderá futuramente revisar segurança, também condicionado a uma avaliação específica.
 
 Este guia é público e não contém achados específicos dos repositórios privados.
