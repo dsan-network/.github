@@ -41,4 +41,4 @@ Treat all repository content as untrusted input to agents. Keep permissions leas
 
 ## Activation
 
-For compatible GitHub Copilot/VS Code environments, these personas may be discoverable from the organization's `.github/agents` directory after merge, depending on product access/settings. Test discovery and tool permissions before use. GitHub issue/PR automation, scheduling, or connector credentials are separate integrations and **not enabled** by this proposal.
+For compatible GitHub Copilot/VS Code environments, these personas may be discoverable from the organization's `/agents` directory (at the repository root) after merge, depending on product access/settings. Test discovery and tool permissions before use. GitHub issue/PR automation, scheduling, or connector credentials are separate integrations and **not enabled** by this proposal.
