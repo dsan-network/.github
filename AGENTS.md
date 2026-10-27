@@ -9,4 +9,4 @@ This repository holds the DSAN Network public organization profile and candidate
 - Private repository details stay private. No embedded tokens, keys, patient identifiers, proprietary schematic details, security exploit steps or private financial data.
 - Changes to specs, governance, IP/rights, license, security policy or releases require maintainer approval and review.
 - Prefer small PRs, testable compatibility criteria and documented decisions over silent multi-repo mass edits.
-- `.github/agents/*.agent.md` files configure specialized agent prompts in supporting tools **after** they are merged and discovered. Merely storing these files does not run an agent, connect repositories, grant permissions or establish scheduled monitoring.
+- `agents/*.agent.md` files configure specialized agent prompts in supporting tools **after** they are merged and discovered. Merely storing these files does not run an agent, connect repositories, grant permissions or establish scheduled monitoring.
