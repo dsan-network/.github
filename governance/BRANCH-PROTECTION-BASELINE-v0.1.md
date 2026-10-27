@@ -20,17 +20,14 @@ As configurações de proteção **não são instaladas ao mesclar este document
 6. Restringir bypass ao mínimo necessário e documentar qualquer exceção; definir política de resposta para correções emergenciais.
 7. Exigir atualização do PR com a `main` antes de mesclar quando a natureza dos testes demandar compatibilidade estrita; avaliar custo/risco de bloquear por conflitos ou runs desnecessárias.
 
-## Mapa inicial de CI — conferir nomes exatos no menu de status checks
+## Critérios para checks de CI em cada repositório
 
-| Repositório | Check proposto quando habilitado e observado | Condição |
-| --- | --- | --- |
-| dsan-app | job `unit-tests` do workflow `tests` | Deve rodar em todo PR e passar |
-| dsan-app | job de `guardian-app-core-reference-conformance` | Confirmar nome exibido pelo GitHub; não usar como requisito se for escopado a alterações que possam deixar PRs sem check |
-| dsan-guardian | job `registry-advisory` | Valida inventário e fixtures; não garante ID único enquanto modo consultivo estiver ativo |
-| DSAN-DREX-ENTERPRISE- | job `proof-gateway-tests` do workflow `auth-v03-experimental-regression` | **Adicionar como requerido somente depois que o PR de CI for mesclado e a regra estiver confirmada** |
-| repositórios sem CI | nenhum check até haver execução confiável | Primeiro introduzir CI, depois obrigatoriedade |
+O gestor deverá mapear, **em documento privado**, quais workflows efetivamente rodam em PRs de cada projeto autorizado e os nomes exatos dos respectivos jobs. Não publicar nomes, cobertura ou situação operacional de repositórios privados no perfil público da organização.
 
-**Não confundir nome do workflow com nome do job/check.** As labels podem ser exibidas de forma composta; confira cada nome na interface antes de ativar o bloqueio.
+- Definir como obrigatório somente um check observado executando consistentemente em todos os PRs a que a regra se aplica.
+- Diferenciar workflow, job e check; confirmar o nome exibido na interface do GitHub.
+- Não habilitar checks que só existem em branches experimentais, ou que rodam apenas em paths que não abrangem todos os PRs.
+- Antes de criar um requisito novo, confirmar que um segundo revisor autorizado pode cumprir eventual exigência de aprovação.
 
 ## Processo manual de ativação
 
@@ -48,7 +45,7 @@ As configurações de proteção **não são instaladas ao mesclar este document
 - As regras do GitHub para repositórios privados dependem do plano e das permissões administrativas. Se a interface não exibir a funcionalidade, verificar elegibilidade sem tornar os repositórios públicos apenas para ativá-la.
 - Algumas contas pessoais ou organizações com um único revisor não conseguem cumprir uma regra de aprovação independente; não habilitar um gate impossível.
 - GitHub Actions em verde significa que as verificações configuradas passaram; não significa conformidade normativa, segurança de produção ou prontidão Drex.
-- Não incorporar o laboratório temporário de perfis de agentes à main do App: mantê-lo na branch privada de testes, fora das builds de produção.
+- Não incorporar laboratórios temporários de perfis de agentes à main de produtos: mantê-los em branches privadas de teste, fora das builds de produção.
 - Quando uma nova automação CI for adicionada, revisar novamente os nomes e a abrangência dos checks obrigatórios antes de ativá-los.
 
 ## Critérios de aceite
